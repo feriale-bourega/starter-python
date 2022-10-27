@@ -1,18 +1,11 @@
 
 #!/usr/bin/env python3
-import requests
-
-def make_request():
-    res = requests.get('https://reqres.in/api/users')
-
-    print(res.json())
-
-
-make_request()
-pip install domain
-fichier = open("domains.xml","r")
-fichier.read()
-from domains.xml import doc 
-ldomaines = doc.getElementsByTagName("column name=domain")
-print( len(ldomaines) ) 
+from xml.dom   import minidom
+doc = minidom.parse('domain.xml')
+elements = doc.getElementsByTagName("column")
+newlist = []
+for element in elements:
+    if element.getAttribute("name")  == "domain"
+    newlist.append(element.childNodes[0].data)
+    print(len(newlist))
 
